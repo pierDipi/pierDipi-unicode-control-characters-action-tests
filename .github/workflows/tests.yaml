@@ -11,8 +11,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          path: ./src/github.com/${{ github.repository }}
 
       - name: Run Tests
         uses: pierdipi/unicode-control-characters-action@main
