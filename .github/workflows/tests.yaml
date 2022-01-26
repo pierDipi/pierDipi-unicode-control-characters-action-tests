@@ -25,4 +25,4 @@ jobs:
       - name: Run Tests
         uses: pierdipi/unicode-control-characters-action@main
         with:
-          args: -d .
+          args: -d -c .unicode-control-characters.config.py .
