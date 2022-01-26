@@ -12,6 +12,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Check for Unicode Control Characters configuration
+        id: check-config
+        uses: andstor/file-existence-action@v1
+        with:
+          files: .unicode-control-characters.config.py
+
+      - name: Create empty Unicode Control Characters configuration
+        if: steps.check-config.outputs.files_exists == 'false'
+        run: echo "scan_exclude = []" > .unicode-control-characters.config.py
+
       - name: Run Tests
         uses: pierdipi/unicode-control-characters-action@main
         with:
