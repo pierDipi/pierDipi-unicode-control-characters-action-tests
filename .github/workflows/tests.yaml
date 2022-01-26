@@ -20,7 +20,7 @@ jobs:
 
       - name: Create empty Unicode Control Characters configuration
         if: steps.check-config.outputs.files_exists == 'false'
-        run: echo "scan_exclude = []" > .unicode-control-characters.config.py
+        run: touch .unicode-control-characters.config.py
 
       - name: Run Tests
         uses: pierdipi/unicode-control-characters-action@main
